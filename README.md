@@ -1,80 +1,69 @@
-<p align="center">
-  <img src="man/figures/worknoiser_logo.png" width="520" alt="WorknoiseR logo">
-</p>
-
-# WorknoiseR
+# WorknoiseR <img src="man/figures/worknoiser_logo.png" align="right" height="180" alt="WorknoiseR logo"/>
 
 **Occupational Noise Exposure Assessment and Spatial Mapping**
 
-[![R-CMD-check](https://github.com/Aguilar-Elena/WorknoiseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Aguilar-Elena/WorknoiseR/actions/workflows/R-CMD-check.yaml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<!-- badges: start -->
+[![GitHub release](https://img.shields.io/github/v/release/Aguilar-Elena/WorknoiseR?display_name=tag&sort=semver)](https://github.com/Aguilar-Elena/WorknoiseR/releases)
+[![R-CMD-check](https://github.com/Aguilar-Elena/WorknoiseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Aguilar-Elena/WorknoiseR/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+<!-- badges: end -->
 
-**WorknoiseR** is a bilingual R package and Shiny application for occupational noise exposure assessment, hearing-protector evaluation, regulatory interpretation and spatial noise mapping.
+`WorknoiseR` is an R package for **occupational noise exposure assessment, hearing-protector evaluation and spatial noise mapping**.
 
-It is designed for occupational hygienists, occupational safety and health practitioners, prevention technicians, researchers and engineers who need to calculate occupational noise exposure, evaluate hearing protection, interpret results against applicable action and limit values, and model the spatial distribution of sound levels in workplaces.
+It is designed for occupational hygienists, health and safety technicians, prevention practitioners, researchers and engineers who need to calculate worker noise exposure, evaluate hearing protection, interpret results against regulatory action and limit values, and model the spatial distribution of sound levels in workplaces.
 
-Unlike a closed calculator, WorknoiseR exposes the underlying calculations as reusable R functions. This makes assessments reproducible, auditable and suitable for automation, while the optional Shiny application provides a guided workflow for practitioners who prefer not to write code.
+Unlike isolated calculators or spreadsheets, `WorknoiseR` exposes the calculation core as small, independently callable and unit-tested R functions. This makes assessments reproducible, auditable and suitable for automation without depending on a graphical interface. An optional bilingual Shiny application provides a guided interactive workflow for practitioners who prefer not to write code.
+
+<hr>
 
 ## Why WorknoiseR?
 
-Occupational noise assessment involves several tasks that are often handled with separate spreadsheets, calculators or specialist applications:
+Occupational noise assessment usually requires several separate operations: energetic addition of sound levels, daily and weekly exposure calculations, hearing-protector assessment, regulatory interpretation and, in many workplaces, spatial modelling of noise sources and receivers.
 
-- logarithmic addition of sound levels;
-- daily and weekly occupational exposure;
-- noise dose and maximum admissible exposure time;
-- hearing-protector assessment;
-- regulatory interpretation;
-- propagation from one or more sources;
-- receiver calculations;
-- barriers and reverberation;
-- noise grids, contours and 2D/3D visualisation;
-- import of worker exposure data;
-- inverse estimation of source levels.
+These tasks are often distributed across spreadsheets, calculators and specialist software, making the workflow difficult to reproduce and audit.
 
-WorknoiseR brings these tasks together in a single reproducible workflow.
+`WorknoiseR` was created to bring these calculations together in a single open and reproducible R workflow.
 
 It helps answer questions such as:
 
-- What is the daily noise exposure level for a worker performing several tasks?
+- What is the daily exposure level for a worker carrying out several tasks?
 - What is the weekly exposure when daily exposure varies?
 - Has a lower or upper exposure action value been reached?
 - Is the exposure limit value exceeded?
 - What protected level is obtained using APV, HML or SNR?
 - How does sound level decay with distance?
 - What level is expected at a specific receiver?
-- How do several sources combine energetically?
-- How do barriers and approximate reverberation affect the predicted field?
+- How do several noise sources combine energetically?
+- How do barriers and approximate reverberation affect the predicted sound field?
 - What do the noise contours look like inside an irregular workplace boundary?
-- Can source levels be estimated from field measurements?
+- Can source sound levels be estimated from field measurements?
 
-## Regulatory framework
-
-WorknoiseR separates the calculation core from the regulatory presentation layer.
-
-- **Spanish interface:** occupational noise assessment is presented with reference to **Real Decreto 286/2006**.
-- **English interface:** occupational noise assessment is presented with reference to **Directive 2003/10/EC**, using European terminology such as `L_EX,8h` and `L_EX,w`.
-
-The numerical core is shared by both languages. Changing the language changes labels, messages and regulatory terminology, not the acoustic calculations.
+<hr>
 
 ## What does WorknoiseR do?
 
-WorknoiseR provides four main groups of functionality.
+`WorknoiseR` integrates four main areas:
 
-### 1. Occupational exposure
+1. **Occupational exposure** — logarithmic sound-level addition, daily and weekly exposure, noise dose, maximum admissible exposure time and regulatory interpretation.
 
-Daily and weekly exposure calculations, energetic addition, noise dose, maximum admissible exposure time and regulatory interpretation.
+2. **Hearing protection** — APV, HML and SNR methods for estimating protected noise exposure.
 
-### 2. Hearing protection
+3. **Spatial noise modelling** — free-field propagation, point receivers, energetic combination of multiple sources, barriers, approximate reverberation, noise grids, contours and inverse source-level estimation.
 
-Assessment using the APV, HML and SNR approaches.
+4. **Interactive and data-driven workflows** — flexible CSV import and a bilingual Shiny application integrating exposure calculations, worker campaigns and 2D/3D noise mapping.
 
-### 3. Spatial noise modelling
+<hr>
 
-Free-field propagation, multiple-source summation, point receivers, barriers, approximate reverberation, noise grids, contours and inverse source-level estimation.
+## Regulatory framework
 
-### 4. Data import and interactive use
+`WorknoiseR` separates the numerical calculation core from the jurisdiction-specific regulatory presentation layer.
 
-Flexible CSV import and a bilingual Shiny application integrating calculations, worker campaigns and 2D/3D noise mapping.
+- **Spanish interface:** assessment is presented with reference to **Real Decreto 286/2006**.
+- **English interface:** assessment is presented with reference to **Directive 2003/10/EC**, using European terminology such as `L_EX,8h` and `L_EX,w`.
+
+Changing language changes labels, messages and regulatory terminology only; it does not alter the underlying acoustic calculations.
+
+<hr>
 
 ## Main functions
 
@@ -104,22 +93,23 @@ Flexible CSV import and a bilingual Shiny application integrating calculations, 
 | `worknoiser_language()` | Language | Returns the active language |
 | `run_noise_app()` | Shiny | Launches the interactive application |
 
+<hr>
+
 ## Installation
 
-### Development version from GitHub
-
 ```r
+# Development version from GitHub:
 # install.packages("remotes")
 remotes::install_github("Aguilar-Elena/WorknoiseR")
 ```
 
-Then load the package:
+Then:
 
 ```r
 library(WorknoiseR)
 ```
 
-### From a source archive
+A source archive can also be installed directly:
 
 ```r
 install.packages(
@@ -129,27 +119,29 @@ install.packages(
 )
 ```
 
+<hr>
+
 ## Language
 
-WorknoiseR is bilingual in **Spanish** and **English**.
+`WorknoiseR` is fully bilingual in **English** and **Spanish**.
 
 ```r
-library(WorknoiseR)
-
-set_worknoiser_language("es")
-worknoiser_language()
-
-set_worknoiser_language("en")
-worknoiser_language()
+worknoiser_language()             # query current language
+set_worknoiser_language("es")     # switch to Spanish
+set_worknoiser_language("en")     # switch back to English
 ```
 
-The Shiny application also includes an in-app **Idioma / Language** selector.
+The Shiny application includes an in-app **Idioma / Language** selector.
+
+<hr>
 
 ## Minimal usage
 
 ### Logarithmic addition
 
 ```r
+library(WorknoiseR)
+
 db_add(c(80, 80))
 ```
 
@@ -186,6 +178,8 @@ noise_dose(85, 4)
 max_exposure_time(88)
 ```
 
+<hr>
+
 ## Regulatory assessment
 
 ### Spain — Real Decreto 286/2006
@@ -212,7 +206,7 @@ evaluate_noise_compliance(
 )
 ```
 
-The English output uses European terminology such as `L_EX,8h`, action values and exposure limit values under Directive 2003/10/EC.
+<hr>
 
 ## Hearing protection
 
@@ -248,6 +242,8 @@ apv_protection(
 )
 ```
 
+<hr>
+
 ## Spatial modelling
 
 ### Free-field propagation
@@ -275,7 +271,7 @@ receiver_level(
 )
 ```
 
-### Noise grid
+### Noise grid and contours
 
 ```r
 grid <- noise_grid(
@@ -283,58 +279,46 @@ grid <- noise_grid(
   domain = c(0, 20, 0, 20),
   resolution = 2
 )
-```
 
-### Noise contours
-
-```r
 noise_contours(
   grid,
   breaks = c(75, 80, 85, 90)
 )
 ```
 
+<hr>
+
 ## Interactive application
 
-Launch the Shiny application with:
-
 ```r
-run_noise_app()
+run_noise_app()                 # default application
+run_noise_app(language = "es") # Spanish
+run_noise_app(language = "en") # English
 ```
 
-Launch directly in Spanish:
+The Shiny application integrates occupational-hygiene calculations, hearing protection, worker exposure data, regulatory interpretation and 2D/3D spatial noise mapping.
 
-```r
-run_noise_app(language = "es")
-```
-
-Launch directly in English:
-
-```r
-run_noise_app(language = "en")
-```
-
-The application integrates exposure calculations, hearing protection, worker data, regulatory interpretation and spatial noise mapping.
+<hr>
 
 ## CSV import
 
-WorknoiseR includes flexible CSV import designed to accept common occupational-noise field names and European CSV formats.
+`WorknoiseR` includes flexible CSV import designed to accept common occupational-noise field names and European CSV conventions.
 
 ```r
-datos <- read_noise_csv("noise_measurements.csv")
+data <- read_noise_csv("noise_measurements.csv")
 ```
 
 The import layer supports alternative column names and common decimal/separator conventions.
 
-## Outputs
+<hr>
 
-Depending on the workflow, WorknoiseR can return:
+## Outputs
 
 | Output | Description |
 |---|---|
-| Daily exposure | Daily occupational noise exposure result |
+| Daily exposure | Daily occupational noise exposure |
 | Weekly exposure | Weekly occupational noise exposure |
-| Regulatory assessment | Action-value and limit-value interpretation |
+| Regulatory assessment | Action-value and exposure-limit interpretation |
 | Noise dose | Percentage dose under the selected criterion |
 | Maximum exposure time | Maximum admissible duration for the selected level |
 | Protected level | Estimated protected level using APV, HML or SNR |
@@ -343,9 +327,11 @@ Depending on the workflow, WorknoiseR can return:
 | Noise contours | Contour coordinates for selected levels |
 | Source estimates | Estimated source levels from measurement data |
 
+<hr>
+
 ## Validation
 
-WorknoiseR 0.5.0 has been validated with:
+Version **0.5.0** has been validated with:
 
 - **39/39 automated tests passing**;
 - **0 failures**;
@@ -353,50 +339,41 @@ WorknoiseR 0.5.0 has been validated with:
 - **0 skipped tests**;
 - **R CMD check --as-cran: 0 errors, 0 warnings, 0 notes**.
 
-The repository also includes an automated **R-CMD-check** GitHub Actions workflow.
+The repository includes an automated **R-CMD-check** GitHub Actions workflow.
+
+<hr>
 
 ## Methodological notes
 
-### Daily and weekly exposure
+**Daily and weekly exposure:** sound levels and exposure durations are combined energetically. Weekly occupational exposure is kept distinct from the descriptive energetic mean of the days actually worked.
 
-Occupational exposure calculations use energetic, logarithmic treatment of sound levels and exposure duration. Weekly exposure is kept distinct from the descriptive energetic mean of the actually exposed days.
+**Hearing protection:** APV, HML and SNR are implemented as separate approaches. The appropriate method depends on the available measurement and protector data.
 
-### Hearing protection
+**Regulatory interpretation:** the Spanish interface uses RD 286/2006 terminology; the English interface uses Directive 2003/10/EC terminology. Regulatory interpretation remains jurisdiction-sensitive.
 
-APV, HML and SNR are implemented as separate approaches. The selected method and available measurement data determine which calculation is appropriate.
+**Spatial modelling:** propagation, barrier and reverberation modules provide engineering estimates to support occupational-hygiene assessment and visualisation. They do not replace a detailed acoustic engineering study when one is required.
 
-### Regulatory interpretation
-
-Regulatory interpretation is jurisdiction-sensitive. The Spanish interface uses RD 286/2006 terminology. The English interface uses Directive 2003/10/EC terminology.
-
-For exposure limit values, interpretation must take account of the legal treatment of hearing-protector attenuation applicable to the selected regulatory framework.
-
-### Spatial modelling
-
-The spatial module provides engineering estimates for propagation, barriers and reverberation. These models are intended to support occupational-hygiene assessment and visualisation; they do not replace a detailed acoustic engineering study where one is required.
+<hr>
 
 ## Limitations
 
-WorknoiseR is a decision-support and calculation tool. It does not replace professional judgement.
+`WorknoiseR` is a decision-support and calculation tool and does not replace professional judgement.
 
-The quality of any occupational noise assessment depends on:
+The quality of an occupational noise assessment depends on representative measurements, an appropriate sampling strategy, correct identification of tasks and exposure periods, valid hearing-protector data, suitable modelling assumptions and correct application of the legislation and technical standards applicable to the workplace.
 
-- representative measurements;
-- an appropriate sampling and measurement strategy;
-- correct identification of tasks and exposure periods;
-- valid hearing-protector data;
-- appropriate modelling assumptions;
-- correct application of the legislation and technical standards relevant to the workplace.
+Spatial predictions are model-based estimates and should be interpreted in light of workplace geometry, source directivity, absorption, reflections, barriers and measurement uncertainty.
 
-Spatial predictions are model-based estimates and should be interpreted in light of actual workplace geometry, source directivity, absorption, reflections, barriers and measurement uncertainty.
+<hr>
 
 ## Citation
 
-If you use WorknoiseR in professional or research work, cite:
+If you use `WorknoiseR` in research or professional work, please cite:
 
-> Aguilar-Elena, R., Delgado-Garcia, A. & Guillén Riquelme, A. (2026).  
-> *WorknoiseR: Occupational Noise Exposure Assessment and Spatial Mapping*.  
-> R package version 0.5.0.
+```text
+Aguilar-Elena, R., Delgado-Garcia, A. & Guillén Riquelme, A. (2026).
+WorknoiseR: Occupational Noise Exposure Assessment and Spatial Mapping.
+R package version 0.5.0.
+```
 
 Once a Zenodo DOI is assigned, the DOI-backed citation should be preferred.
 
@@ -406,23 +383,27 @@ In R:
 citation("WorknoiseR")
 ```
 
+<hr>
+
 ## Authors
 
-**PhD. Raúl Aguilar-Elena** · raguilar@universidadviu.com  
+**PhD. Raúl Aguilar-Elena** &middot; raguilar@universidadviu.com  
 Occupational Risk Prevention and Occupational Health Research Group  
 Universidad Internacional de Valencia (VIU), Valencia, Spain  
 ORCID: 0000-0001-8656-8155
 
-**Ana Delgado-Garcia** · a.delgado@usal.es  
+**Ana Delgado-Garcia** &middot; a.delgado@usal.es  
 BISITE Research Group  
 Universidad de Salamanca (USAL), Salamanca, Spain  
 ORCID: 0009-0003-7079-5507
 
-**PhD. Alejandro Guillén Riquelme** · aguillem@universidadviu.com  
+**PhD. Alejandro Guillén Riquelme** &middot; aguillem@universidadviu.com  
 Occupational Risk Prevention and Occupational Health Research Group  
 Universidad Internacional de Valencia (VIU), Valencia, Spain  
 ORCID: 0000-0002-6373-5237
 
+<hr>
+
 ## License
 
-MIT License.
+MIT © 2026 Raúl Aguilar-Elena, Ana Delgado-Garcia & Alejandro Guillén Riquelme
