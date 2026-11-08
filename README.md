@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="man/figures/worknoiser_logo.png" width="520" alt="WorknoiseR logo">
+</p>
+
 # WorknoiseR
 
 **Español** | **English**
