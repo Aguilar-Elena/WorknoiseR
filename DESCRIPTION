@@ -29,14 +29,16 @@ Description: Provides reproducible computational tools for occupational noise
     exposure assessment and spatial noise modelling. The package implements
     logarithmic sound-level addition, daily and weekly exposure calculations,
     noise dose and maximum admissible exposure time, hearing-protector
-    calculations using APV, HML and SNR approaches, evaluation helpers aligned
-    with the Spanish occupational-noise framework, free-field propagation,
+    calculations using APV, HML and SNR approaches, and regulatory assessment
+    helpers using Spanish Real Decreto 286/2006 and European Directive
+    2003/10/EC terminology. It also provides free-field propagation,
     barrier-aware receiver calculations, spatial noise grids, noise contours,
-    reverberation models and inverse estimation of source levels. A Shiny
-    application is included for interactive occupational-noise calculations and
-    mapping workflows while the calculation core remains independently callable
-    and unit tested. User-facing messages and the interactive application support
-    both Spanish and English through a shared internationalisation layer.
+    approximate reverberation modelling and inverse estimation of source
+    levels. A Shiny application is included for interactive occupational-noise
+    calculations and mapping workflows, while the calculation core remains
+    independently callable and unit tested. User-facing messages and the
+    interactive application support both Spanish and English through a shared
+    internationalisation layer.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en, es
@@ -46,3 +48,5 @@ Suggests: testthat (>= 3.0.0), shiny, rhandsontable, ggplot2, plotly,
     reshape2, viridisLite, scales, sf, readxl, openxlsx, writexl, png, jpeg,
     tiff, pdftools
 Config/testthat/edition: 3
+URL: https://github.com/Aguilar-Elena/WorknoiseR
+BugReports: https://github.com/Aguilar-Elena/WorknoiseR/issues
