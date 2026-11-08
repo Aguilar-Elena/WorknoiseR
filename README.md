@@ -42,7 +42,7 @@ worknoiser_language()
 evaluate_rd286(85, 137)
 
 set_worknoiser_language("en")
-evaluate_rd286(85, 137)
+evaluate_noise_compliance(85, 137, language = "en")
 ```
 
 La aplicación puede iniciarse directamente en español:
@@ -115,7 +115,7 @@ worknoiser_language()
 evaluate_rd286(85, 137)
 
 set_worknoiser_language("es")
-evaluate_rd286(85, 137)
+evaluate_noise_compliance(85, 137, language = "es")
 ```
 
 Launch the application directly in English:
