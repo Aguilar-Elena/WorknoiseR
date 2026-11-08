@@ -1,0 +1,10 @@
+^app\.R$
+^modules$
+^www$
+^INSTALAR_PAQUETES\.R$
+^VALIDAR_WORKNOISER\.R$
+^README\.txt$
+^build_worknoiser\.py$
+^AUDITORIA_CAMBIOS_v04\.md$
+^RELEASE_NOTES_v0\.5\.0\.md$
+^VALIDAR_RELEASE\.R$

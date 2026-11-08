@@ -1,0 +1,48 @@
+Package: WorknoiseR
+Type: Package
+Title: Occupational Noise Exposure Assessment and Spatial Mapping
+Version: 0.5.0
+Authors@R: c(
+    person(
+        given = "Raúl",
+        family = "Aguilar-Elena",
+        role = c("aut", "cre"),
+        email = "raguilar@universidadviu.com",
+        comment = c(ORCID = "0000-0001-8656-8155")
+    ),
+    person(
+        given = "Ana",
+        family = "Delgado-Garcia",
+        role = "aut",
+        email = "a.delgado@usal.es",
+        comment = c(ORCID = "0009-0003-7079-5507")
+    ),
+    person(
+        given = "Alejandro",
+        family = "Guillén Riquelme",
+        role = "aut",
+        email = "aguillem@universidadviu.com",
+        comment = c(ORCID = "0000-0002-6373-5237")
+    )
+    )
+Description: Provides reproducible computational tools for occupational noise
+    exposure assessment and spatial noise modelling. The package implements
+    logarithmic sound-level addition, daily and weekly exposure calculations,
+    noise dose and maximum admissible exposure time, hearing-protector
+    calculations using APV, HML and SNR approaches, evaluation helpers aligned
+    with the Spanish occupational-noise framework, free-field propagation,
+    barrier-aware receiver calculations, spatial noise grids, noise contours,
+    reverberation models and inverse estimation of source levels. A Shiny
+    application is included for interactive occupational-noise calculations and
+    mapping workflows while the calculation core remains independently callable
+    and unit tested. User-facing messages and the interactive application support
+    both Spanish and English through a shared internationalisation layer.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en, es
+Depends: R (>= 4.1.0)
+Imports: stats
+Suggests: testthat (>= 3.0.0), shiny, rhandsontable, ggplot2, plotly,
+    reshape2, viridisLite, scales, sf, readxl, openxlsx, writexl, png, jpeg,
+    tiff, pdftools
+Config/testthat/edition: 3

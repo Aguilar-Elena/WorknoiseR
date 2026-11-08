@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "WorknoiseR: Occupational Noise Exposure Assessment and Spatial Mapping"
+type: software
+version: 0.5.0
+date-released: 2026-11-08
+
+authors:
+  - family-names: Aguilar-Elena
+    given-names: Raúl
+    orcid: "https://orcid.org/0000-0001-8656-8155"
+
+  - family-names: Delgado-Garcia
+    given-names: Ana
+    orcid: "https://orcid.org/0009-0003-7079-5507"
+
+  - family-names: Guillén Riquelme
+    given-names: Alejandro
+    orcid: "https://orcid.org/0000-0002-6373-5237"
+
+abstract: >
+  Bilingual R package and Shiny application for occupational noise exposure
+  assessment, hearing protection analysis, regulatory interpretation and
+  spatial noise mapping.
+
+keywords:
+  - occupational noise
+  - occupational health
+  - occupational safety
+  - hearing protection
+  - industrial hygiene
+  - acoustics
+  - noise mapping
+  - R
+  - Shiny
+
+license: MIT
